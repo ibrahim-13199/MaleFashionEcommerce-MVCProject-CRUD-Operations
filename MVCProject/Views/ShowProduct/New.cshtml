@@ -1,0 +1,54 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "New";
+    SelectList Category =  new SelectList( ViewBag.CategoryList,"Id","name"); 
+}
+
+<h1>New</h1>
+<form method="post" asp-action="SaveNew" asp-controller="ShowProduct" >
+    <div>
+      <label asp-for="tilte"></label>
+      <input asp-for="tilte" class="form-control" />
+      <span asp-validation-for="tilte" class="text-danger"></span>
+    </div>
+
+     <div>
+      <label asp-for="price"></label>
+      <input asp-for="price" class="form-control "/>
+      <span asp-validation-for="price" class="text-danger"></span>
+    </div>
+     
+     <div>
+      <label asp-for="image"></label>
+      <input asp-for="image" class="form-control "/>
+      <span asp-validation-for="image" class="text-danger"></span>
+    </div>
+
+  @*   <div>
+        <label for="Image">Image</label>
+        <input type="file" name="Image" accept="image/*" id="Image" value="@Model.image"class="form-control"/>
+    </div>*@
+
+
+
+     <div>
+      <label asp-for="describtion"></label>
+      <input asp-for="describtion" class="form-control" />
+      <span asp-validation-for="describtion" class="text-danger"></span>
+
+    </div>
+      <div>
+        <label asp-for="categoryId"></label>
+        <select asp-for="categoryId" asp-items="Category"  class="form-control">
+        </select>
+    </div>
+
+   <input type="submit" value="Create" class=" btn btn-danger align-content-center" />
+    
+</form>
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    }
+
+

@@ -1,0 +1,55 @@
+﻿
+@model Category
+@{
+ViewData["Title"] = "Edit";
+}
+
+
+
+<h1>Edit Category</h1>
+
+<form method="post" action="/Category/SaveEdit/@Model.Id" enctype="multipart/form-data" >
+<div>
+
+<label asp-for="name"></label>
+<input asp-for="name" class="form-control" style="color:red"/>
+</div>
+<div>
+<label>Type</label>
+
+@Html.EditorFor(s=>s.type,new{htmlAttributes=new{@class="form-control"}})
+</div>
+
+
+<div>
+
+<label>Image</label>
+<input id="image" name="image" value="@Model.image" type="text" class="form-control" />
+@*<input type="file" name="Image" accept="image/*" id="Image" value="@Model.image"class="form-control"/>*@
+</div>
+
+
+
+
+
+<div>
+
+
+
+</div>
+<input type="submit" value="Save Edit" class="btn btn-primary" />
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

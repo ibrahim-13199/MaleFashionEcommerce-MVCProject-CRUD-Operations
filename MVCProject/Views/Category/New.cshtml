@@ -1,0 +1,42 @@
+﻿
+@model Category
+@{
+    ViewData["Title"] = "New";
+     
+}
+
+<h1>New</h1>
+<form method="post" asp-action="SaveNew" asp-controller="Category" >
+    <div>
+      <label asp-for="name"></label>
+      <input asp-for="name" class="form-control" />
+      <span asp-validation-for="name" class="text-danger"></span>
+    </div>
+
+     <div>
+      <label asp-for="type"></label>
+      <input asp-for="type" class="form-control "/>
+      <span asp-validation-for="type" class="text-danger"></span>
+    </div>
+     
+     <div>
+      <label asp-for="image"></label>
+      <input asp-for="image" class="form-control "/>
+      <span asp-validation-for="image" class="text-danger"></span>
+    </div>
+
+
+
+   <input type="submit" value="Create" class=" btn btn-danger align-content-center" />
+    
+</form>
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    }
+
+
+
+
+
+

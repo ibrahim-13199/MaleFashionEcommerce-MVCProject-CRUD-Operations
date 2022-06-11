@@ -1,0 +1,60 @@
+﻿
+@model List<Category>
+@{
+    Layout = "_OurLayout";
+    ViewData["Title"] = "Index";
+}
+
+  <div class="row">
+                <div class="col-lg-12 m-3">
+                    <div class="section-title">
+                        <span>Latest News</span>
+                        <h2>Our Category</h2>
+                    </div>
+                </div>
+   </div>
+
+@if(User.IsInRole("Admin")==true){
+
+<a asp-action="New" asp-controller="Category"
+ asp-route-xyz="test"
+
+class="btn btn-danger" >New Category</a>
+}
+
+
+<table class="table table-hover table-border " >
+     
+        <th>Type</th>
+        <th>Name</th>
+        <th>Image</th>
+    @if(User.IsInRole("Admin")){<th>See Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    }
+    else
+    {
+        <th>Details</th>
+        
+    }
+    @foreach (var item in Model)
+{
+    <tr>
+       
+        <td>@item.type</td>
+        <td>@item.name</td>
+        <td><img  src="/mainLayOut/images/@item.image" style="width:50px;height:50px;"/></td>
+   
+        @if(User.IsInRole("Admin")==true){<td><a href="/Category/Details?id=@item.Id" class="btn btn-danger" >See Details</a></td>
+         <td><a href="/Category/Edit/@item.Id" class="btn btn-danger" >Edit</a></td> 
+                <td><a href="/Category/deleteCategory/@item.Id" class="btn btn-danger" >Delete</a></td>
+            }
+            else
+            {
+                <td><a href="/Category/Details?id=@item.Id" class="btn btn-danger" >See Details</a></td>
+            }
+        </tr>
+       
+}
+</table>
+

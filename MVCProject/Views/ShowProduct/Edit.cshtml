@@ -1,0 +1,69 @@
+﻿
+@model Product
+@{
+ViewData["Title"] = "Edit";
+}
+
+
+
+<h1>Edit Porduct</h1>
+
+<form method="post" action="/ShowProduct/SaveEdit/@Model.Id" enctype="multipart/form-data" >
+<div>
+
+<label asp-for="tilte"></label>
+<input asp-for="tilte" class="form-control" style="color:red"/>
+</div>
+<div>
+<label>Price</label>
+
+@Html.EditorFor(s=>s.price,new{htmlAttributes=new{@class="form-control"}})
+</div>
+<div>
+<label>Describtion</label>
+<input id="Describtion" name="Describtion" value="@Model.describtion" type="text" class="form-control" />
+</div>
+
+<div>
+
+<label>image</label>
+<input id="image" name="image" value="@Model.image" type="text" class="form-control" />
+@*<input type="file" name="Image" accept="image/*" id="Image" value="@Model.image"class="form-control"/>*@
+</div>
+
+
+
+
+
+<div>
+<label>Category</label>
+
+<select name="categoryId" id="categoryId" class="form-control">
+@foreach (Category CategoryItem in ViewBag.categoryList)
+{
+
+if(Model.categoryId==CategoryItem.Id){
+<option value="@CategoryItem.Id" selected>@CategoryItem.name</option>
+}else{
+<option value="@CategoryItem.Id">@CategoryItem.name</option>
+}
+
+}
+
+
+</select>
+</div>
+<input type="submit" value="Save Edit" class="btn btn-primary" />
+</form>
+
+
+
+
+
+
+
+
+
+
+
+

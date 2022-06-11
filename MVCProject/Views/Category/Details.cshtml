@@ -1,0 +1,19 @@
+﻿
+@model Category
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Category Details</h1>
+
+<div class="card" style="width:400px">
+  <img class="card-img-top" src="/mainLayOut/images/@Model.image" alt="Product image">
+  <div class="card-body">
+  <h4 class="card-title">@Model.type</h4>
+  <p class="card-text">@Model.name</p>
+  <a href="/instructor/index" class="btn btn-primary">Add To Cart</a>
+</div>
+
+</div>
+

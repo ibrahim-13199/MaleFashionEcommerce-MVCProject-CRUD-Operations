@@ -1,0 +1,25 @@
+﻿
+@model Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Product Details</h1>
+
+<div class="card" style="width:400px">
+  <img class="card-img-top" src="/mainLayOut/images/@Model.image" alt="Product image">
+  <div class="card-body">
+  <h4 class="card-title">@Model.describtion</h4>
+  <p class="card-text">@Model.price</p>
+  <a href="/account/login" class="add-cart">+ Add To Cart</a>
+</div>
+
+</div>
+
+
+
+
+
+
+
